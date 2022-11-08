@@ -31,6 +31,7 @@ if(!isset($_SESSION['UserLoginId']))
     <div class="topbarContainer">
       <div class="topbarLeft">
         <span class="logoo">omazon<span>.in</span></span>
+        <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
       </div>
       <div class="topbarCenter">
         <div class="searchbar">
@@ -41,12 +42,13 @@ if(!isset($_SESSION['UserLoginId']))
       <div class="topbarRight">
         <div class="topbarLinks">
             <div class="home_name">Hello, <?php echo $row['name'];?>
+            <i class="fas fa-caret-down"></i>
             <div class="dropdown_menu">
                 <ul>
                     <li><a href="">Edit profile</a></li>
                     <li><a href="">Order history</a></li>
                     <li><form method="post">
-                            <button name="Logout">Logout</button>
+                            <button name="Logout">Signout</button>
                         </form>
                     </li>
                 </ul>
