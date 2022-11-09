@@ -45,7 +45,7 @@ if(!isset($_SESSION['UserLoginId']))
             <i class="fas fa-caret-down"></i>
             <div class="dropdown_menu">
                 <ul>
-                    <li><a href="">Edit profile</a></li>
+                    <li><a href="edituser.php">Edit profile</a></li>
                     <li><a href="">Order history</a></li>
                     <li><form method="post">
                             <button name="Logout">Signout</button>

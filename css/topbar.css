@@ -102,6 +102,9 @@
     position: absolute;
     background: #131921;
 }
+ul{
+    text-decoration: none;
+}
 .dropdown_menu ul{
     display: block;
     margin: 10px;
@@ -109,6 +112,9 @@
 .dropdown_menu ul li{
     width: 120px;
     padding: 10px;
+}
+.default{
+    color: #a6b9d3;
 }
 .dropdown_menu ul li a{
     color: white;

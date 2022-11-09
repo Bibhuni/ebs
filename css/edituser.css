@@ -14,9 +14,6 @@
     align-items: center;
     justify-content: center;
 }
-h1{
-    margin-bottom: auto;
-}
 h2{
     font-family: "Amazon Ember",Arial,sans-serif;
     font-weight: 100;
@@ -24,11 +21,6 @@ h2{
 }
 p{
     font-family: "Amazon Ember",Arial,sans-serif;
-}
-.omazon_logo{
-    width: 70px;
-    height: auto;
-    margin-bottom: 30px;
 }
 .heading{
     display: flex;
@@ -44,6 +36,16 @@ input:focus{
     height: 25px;
     border: 1px solid rgb(185, 133, 64);
     box-shadow: 0 0 5px rgb(238, 183, 81);
+    outline: none;
+}
+select{
+    padding: auto;
+    width: 98%;
+    height: 30px;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 3px;
+}
+select:focus{
     outline: none;
 }
 .name-input{
