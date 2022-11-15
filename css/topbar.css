@@ -12,6 +12,19 @@
     top: 0;
     z-index: 99;
 }
+.topbar2{
+    display: flex;
+    align-items: center;
+    background: #2a3747;
+    height: 26px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: sticky;
+    top: 50px;
+}
+.fa-map-marker-alt{
+    margin-right: 10px;
+}
 .logoo{
     font-size: 24px;
     margin-left: 20px;
@@ -101,15 +114,21 @@
     display: block;
     position: absolute;
     background: #131921;
+    z-index: 1000;
 }
 ul{
     text-decoration: none;
 }
+a{
+    text-decoration: none;
+}
 .dropdown_menu ul{
+    list-style: none;
     display: block;
     margin: 10px;
 }
 .dropdown_menu ul li{
+    text-decoration: none;
     width: 120px;
     padding: 10px;
 }

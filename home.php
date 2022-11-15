@@ -20,6 +20,9 @@ if(!isset($_SESSION['UserLoginId']))
     <script src="https://kit.fontawesome.com/fa11acf629.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/topbar.css">
+    <link rel="stylesheet" href="css/homeContain.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/nosubscriber.css">
     <title>Document</title>
 </head>
 <body>
@@ -30,8 +33,10 @@ if(!isset($_SESSION['UserLoginId']))
     ?>
     <div class="topbarContainer">
       <div class="topbarLeft">
-        <span class="logoo">omazon<span>.in</span></span>
-        <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
+        <a href="home.php" class="topbarLeft">
+            <span class="logoo">omazon<span>.in</span></span>
+            <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
+        </a>
       </div>
       <div class="topbarCenter">
         <div class="searchbar">
@@ -47,6 +52,7 @@ if(!isset($_SESSION['UserLoginId']))
                 <ul>
                     <li><a href="edituser.php">Edit profile</a></li>
                     <li><a href="">Order history</a></li>
+                    <li><a href="contactpage.php">Contact Us</a></li>
                     <li><form method="post">
                             <button name="Logout">Signout</button>
                         </form>
@@ -58,13 +64,72 @@ if(!isset($_SESSION['UserLoginId']))
         <i class="fa-solid fa-cart-shopping topbarImg"></i>
       </div>
     </div>
+    <div class="topbar2">
+      <i class="fas fa-map-marker-alt"></i>
+      <p class="topbar-city"><b><?php echo $row['city'];?>,</b></p>
+      <p class="topbar-state"><?php echo $row['state'];?>, </p>
+      <p class="topbar-pin"><?php echo $row['pin'];?></p>
+    </div>
+
+
+    <?php if ($row['subscriber']==0) { ?> 
+    <div class="no-subscriber">
+      <div class="main-card">
+        <div class="card">
+          <img src="img/technology.jpg" alt="">
+          <div class="card-text">
+            <h2>Tech</h2>
+            <p>Get access to exclusive articles of latest technology and its related stuffs.</p>
+          </div>
+          <div class="card-stats">
+            <button class="stats-btn">Subscribe</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="img/sports.jpg" alt="">
+          <div class="card-text">
+            <h2>Sports</h2>
+            <p>Get access to exclusive sports articles and its related stuffs.</p>
+          </div>
+          <div class="card-stats">
+            <button class="stats-btn">Subscribe</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="img/business.jpg" alt="">
+          <div class="card-text">
+            <h2>Business</h2>
+            <p>Get access to exclusive articles of Business related stuffs.</p>
+          </div>
+          <div class="card-stats">
+            <button class="stats-btn">Subscribe</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="img/global.jpg" alt="">
+          <div class="card-text">
+            <h2>Gold Plan</h2>
+            <p>Get access to all exclusive articles at once.</p>
+          </div>
+          <div class="card-stats">
+            <button class="stats-btn">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php }
+    else { ?>
+    <div>
+      Welcome
+    </div>
+    <?php } ?>
+
     <?php
     if(isset($_POST['Logout']))
     {
     session_destroy();
     header("location: Index.html");
     }
-
-?>
+  ?>
 </body>
 </html>

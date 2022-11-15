@@ -31,8 +31,10 @@ if(!isset($_SESSION['UserLoginId']))
     ?>
     <div class="topbarContainer">
         <div class="topbarLeft">
+        <a href="home.php" class="topbarLeft">
           <span class="logoo">omazon<span>.in</span></span>
           <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
+        </a>
         </div>
         <div class="topbarCenter">
           <div class="searchbar">
@@ -48,6 +50,7 @@ if(!isset($_SESSION['UserLoginId']))
                   <ul>
                       <li class="default">Edit profile</li>
                       <li><a href="">Order history</a></li>
+                      <li><a href="contactpage.php">Contact Us</a></li>
                       <li><form method="post">
                               <button name="Logout">Signout</button>
                           </form>
@@ -61,31 +64,46 @@ if(!isset($_SESSION['UserLoginId']))
       </div>
       <center><div class="total">
         <center><div class="main">
-            <center><form class="login-form" id="register">
+            <center><form id="update" class="login-form" action="updateuser.php" method="post">
                 <div class="heading">
-                    <h2>Create Account</h2>
+                    <h2>Update your account</h2>
                 </div>
                 <div class="name-input">
                     <p>Your name</p>
-                    <input name="name" type="text">
+                    <input name="name" type="text" placeholder="<?php echo $row['name'];?>">
                 </div>
                 <div class="email-input">
-                    <p>Email</p>
-                    <input name="email" type="text">
+                    <p>Number</p>
+                    <input name="number" type="text" placeholder="<?php echo $row['number'];?>">
+                </div>
+                <div class="email-input">
+                    <p>House no./Flat name</p>
+                    <input name="house" type="text" placeholder="<?php echo $row['house'];?>">
+                </div>
+                <div class="email-input">
+                    <p>Street name</p>
+                    <input name="street" type="text" placeholder="<?php echo $row['street'];?>">
+                </div>
+                <div class="email-input">
+                    <p>City</p>
+                    <input name="city" type="text" placeholder="<?php echo $row['city'];?>">
+                </div>
+                <div class="email-input">
+                    <p>State</p>
+                    <input name="state" type="text" placeholder="<?php echo $row['state'];?>">
                 </div>
                 <div class="password-input">
-                    <p>Password</p>
-                    <input name="password" type="password">
+                    <p>Pin</p>
+                    <input name="pin" type="number" placeholder="<?php echo $row['pin'];?>">
                 </div>
                 <div class="login-bttn">
-                    <button class="login-btn">Continue</button>
+                    <button class="login-btn" name="update">Continue</button>
                 </div>
                 <div class="description">
                     <p>By enrolling your email, you consent to receive automated security notifications via text message from Omazon. Message and data rates may apply.</p>
                 </div>
             </form></center>
         </div></center>
-        <p class="new-acc"><span>Have an account?</span></p>
         <a href="home.php"><button class="new-acc-btn">Back to Home</button></a>
     </div></center>
 
