@@ -1,0 +1,36 @@
+section.sports .sports-container{
+    max-width: 1152px;
+    padding: 6px 15px;
+    margin: 0 auto;
+}
+section.sports .caard-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3rem;
+}
+
+section.sports .caard-wrapper .caard{
+    background: white;
+    transition: all 0.3s ease;
+}
+
+section.sports .caard-wrapper .caard:hover{
+    transform: scale(1.01)
+}
+
+section.sports .caard-wrapper .caard img{
+    width: 100.1%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section.sports .caard-wrapper .caard .caard-content{
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+section.sports .caard-wrapper .caard .caard-content h1{
+    font-size: 1rem;
+    font-weight: 600;
+}

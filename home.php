@@ -23,6 +23,7 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/homeContain.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/nosubscriber.css">
+    <link rel="stylesheet" href="css/sports.css">
     <title>Document</title>
 </head>
 <body>
@@ -82,7 +83,9 @@ if(!isset($_SESSION['UserLoginId']))
             <p>Get access to exclusive articles of latest technology and its related stuffs.</p>
           </div>
           <div class="card-stats">
-            <button class="stats-btn">Subscribe</button>
+            <form class="stats-btn" action="subscribe.php" id="tech" method="post">
+              <button name="tech">Subscribe</button>
+            </form>
           </div>
         </div>
         <div class="card">
@@ -92,7 +95,9 @@ if(!isset($_SESSION['UserLoginId']))
             <p>Get access to exclusive sports articles and its related stuffs.</p>
           </div>
           <div class="card-stats">
-            <button class="stats-btn">Subscribe</button>
+            <form class="stats-btn" action="subscribe.php" id="sports" method="post">
+              <button name="sports">Subscribe</button>
+            </form>
           </div>
         </div>
         <div class="card">
@@ -102,7 +107,9 @@ if(!isset($_SESSION['UserLoginId']))
             <p>Get access to exclusive articles of Business related stuffs.</p>
           </div>
           <div class="card-stats">
-            <button class="stats-btn">Subscribe</button>
+            <form class="stats-btn" action="subscribe.php" id="bussiness" method="post">
+              <button name="business">Subscribe</button>
+            </form>
           </div>
         </div>
         <div class="card">
@@ -112,17 +119,126 @@ if(!isset($_SESSION['UserLoginId']))
             <p>Get access to all exclusive articles at once.</p>
           </div>
           <div class="card-stats">
-            <button class="stats-btn">Subscribe</button>
+            <form class="stats-btn" action="subscribe.php" id="all" method="post">
+              <button name="all">Subscribe</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
     <?php }
-    else { ?>
+    else if ($row['subscriber']==1) { ?>
     <div>
-      Welcome
+      Welcome to Tech world.
+      <?php include('get_featured_articles_sports.php'); ?>
+    
+    <section class="sports">
+      <div class="sports-container">
+        <div class="caard-wrapper">
+          <?php while($roww = mysqli_fetch_assoc($fta)){?>
+          <div class="caard">
+            <div class="img-wrapper">
+              <img src="img/technology.jpg" alt="img">
+            </div>
+            <div class="caard-content">
+              <a href="https://bibhuni.netlify.app/" target="_blank">
+                <h1><?php echo $roww['headline']?></h1>
+              </a>
+              <span><?php echo $roww['date']?></span>
+              <p><?php echo $roww['subtext']?></p>
+            </div>
+          </div>
+          <?php }?>
+        </div>
+      </div>
+    </section>
+
+    </div>
+    <?php }
+    else if ($row['subscriber']==2) { ?>
+    <div>
+    Welcome to Sports world.
+    <?php include('get_featured_articles_sports.php'); ?>
+    
+    <section class="sports">
+      <div class="sports-container">
+        <div class="caard-wrapper">
+          <?php while($roww = mysqli_fetch_assoc($fsa)){?>
+          <div class="caard">
+            <div class="img-wrapper">
+              <img src="img/sports.jpg" alt="img">
+            </div>
+            <div class="caard-content">
+              <a href="https://bibhuni.netlify.app/" target="_blank">
+                <h1><?php echo $roww['headline']?></h1>
+              </a>
+              <span><?php echo $roww['date']?></span>
+              <p><?php echo $roww['subtext']?></p>
+            </div>
+          </div>
+          <?php }?>
+        </div>
+      </div>
+    </section>
+    </div>
+    <?php }
+    else if ($row['subscriber']==3) { ?>
+    <div>
+      Welcome to Business world.
+      <?php include('get_featured_articles_sports.php'); ?>
+    
+    <section class="sports">
+      <div class="sports-container">
+        <div class="caard-wrapper">
+          <?php while($roww = mysqli_fetch_assoc($fba)){?>
+          <div class="caard">
+            <div class="img-wrapper">
+              <img src="img/business.jpg" alt="img">
+            </div>
+            <div class="caard-content">
+              <a href="https://bibhuni.netlify.app/" target="_blank">
+                <h1><?php echo $roww['headline']?></h1>
+              </a>
+              <span><?php echo $roww['date']?></span>
+              <p><?php echo $roww['subtext']?></p>
+            </div>
+          </div>
+          <?php }?>
+        </div>
+      </div>
+    </section>
+
+    </div>
+    <?php }
+    else if ($row['subscriber']==4) { ?>
+    <div>
+      Welcome to Omazon world.
+      <?php include('get_featured_articles_sports.php'); ?>
+    
+    <section class="sports">
+      <div class="sports-container">
+        <div class="caard-wrapper">
+          <?php while($roww = mysqli_fetch_assoc($fa)){?>
+          <div class="caard">
+            <div class="img-wrapper">
+              <img src="img/global.jpg" alt="img">
+            </div>
+            <div class="caard-content">
+              <a href="https://bibhuni.netlify.app/" target="_blank">
+                <h1><?php echo $roww['headline']?></h1>
+              </a>
+              <span><?php echo $roww['date']?></span>
+              <p><?php echo $roww['subtext']?></p>
+            </div>
+          </div>
+          <?php }?>
+        </div>
+      </div>
+    </section>
+
     </div>
     <?php } ?>
+    
 
     <?php
     if(isset($_POST['Logout']))
