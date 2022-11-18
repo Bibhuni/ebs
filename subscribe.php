@@ -6,7 +6,7 @@ mysqli_select_db($connection,"ebs");
 if(isset($_POST['tech']))
 {
     $userid=$_SESSION['UserLoginId'];
-    $query = "UPDATE user SET subscriber='1' WHERE email='$_SESSION[UserLoginId]'";
+    $query = "UPDATE user SET subscriber='tech' WHERE email='$_SESSION[UserLoginId]'";
 
     mysqli_query($connection,$query);
 
@@ -16,7 +16,7 @@ if(isset($_POST['tech']))
 }
 else if(isset($_POST['sports'])){
     $userid=$_SESSION['UserLoginId'];
-    $query = "UPDATE user SET subscriber='2' WHERE email='$_SESSION[UserLoginId]'";
+    $query = "UPDATE user SET subscriber='sports' WHERE email='$_SESSION[UserLoginId]'";
     
     mysqli_query($connection,$query);
     
@@ -26,7 +26,7 @@ else if(isset($_POST['sports'])){
 }
 else if(isset($_POST['business'])){
     $userid=$_SESSION['UserLoginId'];
-    $query = "UPDATE user SET subscriber='3' WHERE email='$_SESSION[UserLoginId]'";
+    $query = "UPDATE user SET subscriber='business' WHERE email='$_SESSION[UserLoginId]'";
     
     mysqli_query($connection,$query);
     
@@ -36,7 +36,7 @@ else if(isset($_POST['business'])){
 }
 else if(isset($_POST['all'])){
     $userid=$_SESSION['UserLoginId'];
-    $query = "UPDATE user SET subscriber='4' WHERE email='$_SESSION[UserLoginId]'";
+    $query = "UPDATE user SET subscriber='all' WHERE email='$_SESSION[UserLoginId]'";
     
     mysqli_query($connection,$query);
     

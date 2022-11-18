@@ -10,6 +10,7 @@ section.sports .caard-wrapper{
 }
 
 section.sports .caard-wrapper .caard{
+    width: 350px;
     background: white;
     transition: all 0.3s ease;
 }
@@ -18,6 +19,9 @@ section.sports .caard-wrapper .caard:hover{
     transform: scale(1.01)
 }
 
+section.sports .caard-wrapper .caard .img-wrapper img{
+    height: 200px;
+}
 section.sports .caard-wrapper .caard img{
     width: 100.1%;
     height: 100%;

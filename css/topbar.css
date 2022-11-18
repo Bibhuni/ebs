@@ -21,6 +21,7 @@
     font-family: Arial, Helvetica, sans-serif;
     position: sticky;
     top: 50px;
+    z-index: 1;
 }
 .fa-map-marker-alt{
     margin-right: 10px;

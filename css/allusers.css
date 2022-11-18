@@ -1,0 +1,74 @@
+.no-subscriber{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-card{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 5rem;
+    grid-row-gap: 4rem;
+  }
+  a{
+    cursor: pointer;
+  }
+  .card {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 65px;
+    grid-template-areas: "text";
+    
+  
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.301);
+    font-family: roboto;
+    text-align: center;
+  }
+  .card-text {
+    grid-area: text;
+    margin: 10px;
+  }
+  .card-text p {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+  }
+  .card-text h2 {
+    margin-top:0px;
+    font-size:28px;
+  }
+  .card-stats {
+    grid-area: stats; 
+  
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  .stats-btn{
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    color: black;
+  }
+  .stats-btn button{
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: #febd69;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+  .card-stats .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    color: white;
+    padding:10px;
+  }

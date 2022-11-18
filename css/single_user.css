@@ -1,0 +1,61 @@
+.user-manage{
+    max-width: 50%;
+}
+.user-manage p{
+    color: #424242;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: "Lato",sans-serif;
+    padding: 8px 0;
+}
+.user-name{
+    text-align: center;
+}
+.user-manage h1{
+    position: relative;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    font-family: "Lato",sans-serif;
+    margin-bottom: 10px;
+    padding-top: 5px;
+}
+.user-manage h4{
+    text-align: left;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: "Lato",sans-serif;
+    color: #424242;
+    padding-top: 6px;
+    font-weight: 100;
+}
+.user-manage-date{
+    color: #757575;
+    text-align: left;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: "Lato",sans-serif;
+}
+.user-manage img{
+    width: 750px;
+}
+.action-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+button{
+    border: none;
+    padding: 2px;
+    height: 35px;
+    width: 180px;
+    border-radius: 3px;
+    color: white;
+}
+.cancel-subscription{
+    background: rgb(204, 107, 42);
+}
+.delete-user{
+    background: red;
+}
