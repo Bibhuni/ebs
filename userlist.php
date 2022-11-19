@@ -22,9 +22,10 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/topbar.css">
     <link rel="stylesheet" href="css/edituser.css">
     <link rel="stylesheet" href="css/allusers.css">
+    <link rel="stylesheet" href="css/table.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="initClock()">
 <?php
         $user_data="SELECT * FROM user WHERE email='$_SESSION[UserLoginId]'";
         $user_datta=mysqli_query($connection,$user_data);
@@ -50,7 +51,7 @@ if(!isset($_SESSION['UserLoginId']))
             <div class="dropdown_menu">
                 <ul>
                     <li><a href="edituser.php">Edit profile</a></li>
-                    <li><a href="">Order history</a></li>
+                    <li><a href="user_reset_password.php">change Password</a></li>
                     <li><a href="contactpage.php">Contact Us</a></li>
                     <li><form method="post">
                             <button name="Logout">Signout</button>
@@ -60,27 +61,33 @@ if(!isset($_SESSION['UserLoginId']))
             </div>
             </div>
         </div>
-        <i class="fa-solid fa-cart-shopping topbarImg"></i>
-      </div>
-    </div>
-    <section>
-    <?php include('get_all_users.php'); ?>
-
-    <div class="no-subscriber">
-      <div class="main-card">
-      <?php while($rowe = mysqli_fetch_assoc($aluser)){?>
-        <a href="<?php echo "manageusers.php?id=". $rowe['id'];?>">
-        <div class="card">
-          <div class="card-text">
-            <h2><?php echo $rowe['name']?></h2>
-            <p><?php echo $rowe['subscriber']?></p>
-          </div>
+        <div class="date">
+            <span id="dayname">Day</span>,
+            <span id="month">Month</span>
+            <span id="daynum">00</span>,
+            <span id="year">Year</span>    
         </div>
-        </a>
-        <?php }?>
       </div>
     </div>
-    </section>
+  <section>
+  <?php include('get_all_users.php'); ?>
+    <table>
+      <tr>
+        <th>User id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Subscribed to</th>
+      </tr>
+      <?php while($rowe = mysqli_fetch_assoc($aluser)){?>
+      <tr>
+        <td><a href="<?php echo "manageusers.php?id=". $rowe['id'];?>"><?php echo $rowe['id']?></a></td>
+        <td><a href="<?php echo "manageusers.php?id=". $rowe['id'];?>"><?php echo $rowe['name']?></a></td>
+        <td><a href="<?php echo "manageusers.php?id=". $rowe['id'];?>"><?php echo $rowe['email']?></a></td>
+        <td><a href="<?php echo "manageusers.php?id=". $rowe['id'];?>"><?php echo $rowe['subscriber']?></a></td>
+      </tr>
+      <?php }?>
+    </table>
+  </section>
     <?php
     if(isset($_POST['Logout']))
     {
@@ -88,6 +95,6 @@ if(!isset($_SESSION['UserLoginId']))
     header("location: Index.html");
     }
   ?>
-
+<script src="js/dtime.js"></script>
 </body>
 </html>

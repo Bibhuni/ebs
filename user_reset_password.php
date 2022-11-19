@@ -12,6 +12,7 @@ if(!isset($_SESSION['UserLoginId']))
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +24,13 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/topbar.css">
     <title>Document</title>
 </head>
-<body onload="initClock()">
-    <?php
+<body>
+<?php
     $user_data="SELECT * FROM user WHERE email='$_SESSION[UserLoginId]'";
     $user_datta=mysqli_query($connection,$user_data);
-    $row = mysqli_fetch_assoc($user_datta)
+    $row = mysqli_fetch_assoc($user_datta);
+    $oldpassword = $row['password'];
+
     ?>
     <div class="topbarContainer">
         <div class="topbarLeft">
@@ -48,8 +51,8 @@ if(!isset($_SESSION['UserLoginId']))
               <i class="fas fa-caret-down"></i>
               <div class="dropdown_menu">
                   <ul>
-                      <li class="default">Edit profile</li>
-                      <li><a href="user_reset_password.php">change Password</a></li>
+                      <li><a href="edituser.php">Edit profile</a></li>
+                      <li class="default">change Password</li>
                       <li><a href="contactpage.php">Contact Us</a></li>
                       <li><form method="post">
                               <button name="Logout">Signout</button>
@@ -67,42 +70,27 @@ if(!isset($_SESSION['UserLoginId']))
         </div>
         </div>
       </div>
-      <center><div class="total">
+    <center><div class="total">
         <center><div class="main">
-            <center><form id="update" class="login-form" action="updateuser.php" method="post">
+            <center><form id="update-password" class="login-form" action="userResetPassword.php" method="post">
                 <div class="heading">
-                    <h2>Update your account</h2>
-                </div>
-                <div class="name-input">
-                    <p>Your name</p>
-                    <input name="name" type="text" placeholder="<?php echo $row['name'];?>">
+                    <h2>Reset your password</h2>
                 </div>
                 <div class="email-input">
-                    <p>Number</p>
-                    <input name="number" type="text" placeholder="<?php echo $row['number'];?>">
+                    <p>Old Password</p>
+                    <input id="oldpassword" name="oldpassword" type="password">
                 </div>
                 <div class="email-input">
-                    <p>House no./Flat name</p>
-                    <input name="house" type="text" placeholder="<?php echo $row['house'];?>">
-                </div>
-                <div class="email-input">
-                    <p>Street name</p>
-                    <input name="street" type="text" placeholder="<?php echo $row['street'];?>">
-                </div>
-                <div class="email-input">
-                    <p>City</p>
-                    <input name="city" type="text" placeholder="<?php echo $row['city'];?>">
-                </div>
-                <div class="email-input">
-                    <p>State</p>
-                    <input name="state" type="text" placeholder="<?php echo $row['state'];?>">
+                    <p>Password</p>
+                    <input id="password" name="password" type="password">
                 </div>
                 <div class="password-input">
-                    <p>Pin</p>
-                    <input name="pin" type="number" placeholder="<?php echo $row['pin'];?>">
+                    <p>Re-type Password</p>
+                    <input id="re-password" type="password">
                 </div>
+                <div class="error" id="error"></div>
                 <div class="login-bttn">
-                    <button class="login-btn" name="update">Continue</button>
+                    <button class="login-btn" name="update-password">Change password</button>
                 </div>
                 <div class="description">
                     <p>By enrolling your email, you consent to receive automated security notifications via text message from Omazon. Message and data rates may apply.</p>
@@ -111,15 +99,31 @@ if(!isset($_SESSION['UserLoginId']))
         </div></center>
         <a href="home.php"><button class="new-acc-btn">Back to Home</button></a>
     </div></center>
+    <script>
+        const oldpassword = document.getElementById('oldpassword');
+        const password = document.getElementById('password');
+        const repassword = document.getElementById('re-password');
+        const form = document.getElementById('update-password');
+        const errorElement = document.getElementById('error');
 
-    <?php
-    if(isset($_POST['Logout']))
-    {
-    session_destroy();
-    header("location: Index.html");
-    }
-
-?>
-<script src="js/dtime.js"></script>
+        form.addEventListener('submit',(e)=>{
+            let message = []
+            if(oldpassword.value != '<?php echo $row['password'];?>'){
+                message.push('*Wrong password entered')
+            }else if(oldpassword.value === '' || oldpassword.value == null){
+                message.push('*Enter your oldpassword please.');
+            }else if(password.value === '' || password.value == null){
+                message.push('*Enter your password please.');
+            }else if(password.value != repassword.value){
+                message.push('*Password didn not match');
+            }else if(password.value.length<5){
+                message.push('*Password is too small');
+            }
+            if(message.length > 0){
+                e.preventDefault()
+                errorElement.innerText = message.join(',')
+            }
+        })
+    </script>
 </body>
 </html>

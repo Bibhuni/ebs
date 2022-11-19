@@ -71,6 +71,9 @@ select:focus{
     font-size: 12px;
     font-weight: 600;
 }
+.error{
+    color: red;
+}
 .password-input{
     display: flex;
     flex-direction: column;

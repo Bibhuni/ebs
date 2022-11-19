@@ -35,7 +35,7 @@ if(isset($_POST['register']))
                 echo"
                 <script>
                 alert('Registration sucessfull, back to login');
-                window.location.href='Index.html';
+                window.location.href='login.html';
                 </script>
                 ";
             }

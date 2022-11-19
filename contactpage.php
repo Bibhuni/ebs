@@ -22,7 +22,7 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/topbar.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="initClock()">
     <?php
     $user_data="SELECT * FROM user WHERE email='$_SESSION[UserLoginId]'";
     $user_datta=mysqli_query($connection,$user_data);
@@ -48,7 +48,7 @@ if(!isset($_SESSION['UserLoginId']))
               <div class="dropdown_menu">
                   <ul>
                       <li><a href="edituser.php">Edit profile</a></li>
-                      <li><a href="">Order history</a></li>
+                      <li><a href="user_reset_password.php">change Password</a></li>
                       <li class="default">Contact Us</li>
                       <li><form method="post">
                               <button name="Logout">Signout</button>
@@ -58,7 +58,12 @@ if(!isset($_SESSION['UserLoginId']))
               </div>
               </div>
           </div>
-          <i class="fa-solid fa-cart-shopping topbarImg"></i>
+          <div class="date">
+            <span id="dayname">Day</span>,
+            <span id="month">Month</span>
+            <span id="daynum">00</span>,
+            <span id="year">Year</span>    
+        </div>
         </div>
         <?php
     if(isset($_POST['Logout']))
@@ -111,5 +116,6 @@ if(!isset($_SESSION['UserLoginId']))
             <a href="home.php"><button class="btn1 last">Back to Home</button></a>
         </div></center>
     </section>
+    <script src="js/dtime.js"></script>
 </body>
 </html>

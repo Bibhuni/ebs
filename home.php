@@ -25,9 +25,10 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/nosubscriber.css">
     <link rel="stylesheet" href="css/sports.css">
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/table.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="initClock()">
     <?php
         $user_data="SELECT * FROM user WHERE email='$_SESSION[UserLoginId]'";
         $user_datta=mysqli_query($connection,$user_data);
@@ -53,7 +54,7 @@ if(!isset($_SESSION['UserLoginId']))
             <div class="dropdown_menu">
                 <ul>
                     <li><a href="edituser.php">Edit profile</a></li>
-                    <li><a href="">Order history</a></li>
+                    <li><a href="user_reset_password.php">change Password</a></li>
                     <li><a href="contactpage.php">Contact Us</a></li>
                     <li><form method="post">
                             <button name="Logout">Signout</button>
@@ -63,14 +64,27 @@ if(!isset($_SESSION['UserLoginId']))
             </div>
             </div>
         </div>
-        <i class="fa-solid fa-cart-shopping topbarImg"></i>
+        <div class="date">
+            <span id="dayname">Day</span>,
+            <span id="month">Month</span>
+            <span id="daynum">00</span>,
+            <span id="year">Year</span>    
+        </div>
       </div>
     </div>
     <div class="topbar2">
-      <i class="fas fa-map-marker-alt"></i>
-      <p class="topbar-city"><b><?php echo $row['city'];?>,</b></p>
-      <p class="topbar-state"><?php echo $row['state'];?>, </p>
-      <p class="topbar-pin"><?php echo $row['pin'];?></p>
+      <div class="action-btns">
+        <i class="fas fa-map-marker-alt"></i>
+        <p class="topbar-city"><b><?php echo $row['city'];?>,</b></p>
+        <p class="topbar-state"><?php echo $row['state'];?>, </p>
+        <p class="topbar-pin"><?php echo $row['pin'];?></p>
+      </div>
+      <div class="time">
+            <span id="hour">00</span>:
+            <span id="minutes">00</span>:
+            <span id="seconds">00</span>
+            <span id="period">AM</span>    
+        </div>
     </div>
 
 
@@ -84,9 +98,9 @@ if(!isset($_SESSION['UserLoginId']))
             <p>Get access to exclusive articles of latest technology and its related stuffs.</p>
           </div>
           <div class="card-stats">
-            <form class="stats-btn" action="subscribe.php" id="tech" method="post">
-              <button name="tech">Subscribe</button>
-            </form>
+            <div class="stats-btn">
+              <a href="tech_payment.php"><button name="tech">Subscribe</button></a>
+            </div>
           </div>
         </div>
         <div class="card">
@@ -96,9 +110,9 @@ if(!isset($_SESSION['UserLoginId']))
             <p>Get access to exclusive sports articles and its related stuffs.</p>
           </div>
           <div class="card-stats">
-            <form class="stats-btn" action="subscribe.php" id="sports" method="post">
-              <button name="sports">Subscribe</button>
-            </form>
+          <div class="stats-btn">
+              <a href="sports_payment.php"><button name="tech">Subscribe</button></a>
+            </div>
           </div>
         </div>
         <div class="card">
@@ -108,9 +122,9 @@ if(!isset($_SESSION['UserLoginId']))
             <p>Get access to exclusive articles of Business related stuffs.</p>
           </div>
           <div class="card-stats">
-            <form class="stats-btn" action="subscribe.php" id="bussiness" method="post">
-              <button name="business">Subscribe</button>
-            </form>
+          <div class="stats-btn">
+              <a href="business_payment.php"><button name="tech">Subscribe</button></a>
+            </div>
           </div>
         </div>
         <div class="card">
@@ -120,9 +134,9 @@ if(!isset($_SESSION['UserLoginId']))
             <p>Get access to all exclusive articles at once.</p>
           </div>
           <div class="card-stats">
-            <form class="stats-btn" action="subscribe.php" id="all" method="post">
-              <button name="all">Subscribe</button>
-            </form>
+          <div class="stats-btn">
+              <a href="all_payment.php"><button name="tech">Subscribe</button></a>
+            </div>
           </div>
         </div>
       </div>
@@ -144,7 +158,6 @@ if(!isset($_SESSION['UserLoginId']))
                   <div class="caard-content">
                       <h1><?php echo $roww['headline']?></h1>
                     <span><?php echo $roww['date']?></span>
-                    <p><?php echo $roww['subtext']?></p>
                   </div>
                 </div>
                 </a>
@@ -156,7 +169,7 @@ if(!isset($_SESSION['UserLoginId']))
           </div>
     <?php }
         else if ($row['subscriber']=='admin') { ?>
-          <div>
+          <center><div>
             <?php include('get_admin_data.php'); 
               $xuq = mysqli_fetch_assoc($uq);
               $xsu = mysqli_fetch_assoc($su);
@@ -174,32 +187,22 @@ if(!isset($_SESSION['UserLoginId']))
 
             ?>
             Hii Admin.
-            <center><div class="admin-class">
-              <div class="admin-summary">
-                <h4>Summary</h4>
-                <ul>
-                  <li>Total Users = <?php echo $xuq['total_user']?></li>
-                  <li>Total subscribers=<?php echo $xsu['total_subscriber']?></li>
-                  <li>Tech subscribers=<?php echo $xtu['tech_subscriber']?></li>
-                  <li>Sports subscribers=<?php echo $xspu['sports_subscriber']?></li>
-                  <li>Business subscribers=<?php echo $xbu['business_subscriber']?></li>
-                  <li>Gold subscribers=<?php echo $xgu['gold_subscriber']?></li>
-                  <li>Total articles=<?php echo $xaq['total_articles']?></li>
-                  <li>Tech articles=<?php echo $xta['tech_articles']?></li>
-                  <li>Sports articles=<?php echo $xsa['sports_articles']?></li>
-                  <li>Business articles=<?php echo $xba['business_articles']?></li>
-                </ul>
-              </div>
-              <div class="admin-operations">
-                <h4>operations</h4>
-                <ul>
-                  <a href="createpost.php"><li>Create Post</li></a>
-                  <a href="userlist.php"><li>View user list</li></a>
-                  <a href="articlelist.php"><li>view articles</li></a>
-                </ul>
-              </div>
-            </div></center>
-          </div>
+            <table>
+              <tr><td>Total Users</td><td><?php echo $xuq['total_user']?></td></tr>
+              <tr><td>Total subscribers</td><td><?php echo $xsu['total_subscriber']?></td></tr>
+              <tr><td>Tech subscribers</td><td><?php echo $xtu['tech_subscriber']?></td></tr>
+              <tr><td>Sports subscribers</td><td><?php echo $xspu['sports_subscriber']?></td></tr>
+              <tr><td>Business subscribers</td><td><?php echo $xbu['business_subscriber']?></td></tr>
+              <tr><td>Gold subscribers</td><td><?php echo $xgu['gold_subscriber']?></td></tr>
+              <tr><td>Total articles</td><td><?php echo $xaq['total_articles']?></td></tr>
+              <tr><td>Tech articles</td><td><?php echo $xta['tech_articles']?></td></tr>
+              <tr><td>Sports articles</td><td><?php echo $xsa['sports_articles']?></td></tr>
+              <tr><td>Business articles</td><td><?php echo $xba['business_articles']?></td></tr>
+              <tr><th><a href="createpost.php"><li>Create Post</li></a></th><th><a href="createpost.php">GO</a></th></tr>
+              <tr><th><a href="userlist.php"><li>View user list</li></a></th><th><a href="userlist.php">GO</a></th></tr>
+              <tr><th><a href="articlelist.php"><li>view articles</li></a></th><th><a href="articlelist.php">GO</a></th></tr>
+          </table>
+          </div></center>
     <?php }
     else{ ?>
     <div>
@@ -217,7 +220,6 @@ if(!isset($_SESSION['UserLoginId']))
             <div class="caard-content">
                 <h1><?php echo $roww['headline']?></h1>
                 <span><?php echo $roww['date']?></span>
-                <p><?php echo $roww['subtext']?></p>
               </div>
             </div>
           </a>
@@ -237,5 +239,6 @@ if(!isset($_SESSION['UserLoginId']))
     header("location: Index.html");
     }
   ?>
+<script src="js/dtime.js"></script>
 </body>
 </html>

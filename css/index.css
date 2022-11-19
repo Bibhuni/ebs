@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.rbn a{
+    text-decoration: none;
+    color: white;
+}
+h1{
+    font-weight: 100;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10px;
+}
+.title{
+    height: 50px;
+    width: 100%;
+    background: #131921;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+.logoo{
+    font-size: 24px;
+    margin-left: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+img{
+    margin-left: 30px;
+    width: 50px;
+    height: auto;
+}
+.date{
+    color: white;
+    margin-right: 30px;
+}
+.date span{
+    color: white;
+}
+.time{
+    color: rgb(192, 192, 192);
+    margin-right: 30px;
+}
+.time span{
+    color: rgb(192, 192, 192);
+}
+.rbn{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    background: #2a3747;
+    height: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: sticky;
+    top: 50px;
+    z-index: 1;
+}
+.action-btns{
+    display: flex;
+    gap: 20px;
+}
+.details{
+    background: rgba(190, 192, 211, 0.452);
+    height: 50vh;
+}
+.oth-details{
+    background: white;
+    margin: 15px 15px 10px 15px;
+    padding-bottom: 5px;
+    border: 1px solid rgb(187, 187, 187);
+}
+.oth-details p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.oth-details ul{
+    margin-left: 40px;
+}
+.oth-details li{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 5px;
+    list-style-type: circle; 
+}
+.ex-details{
+    display: flex;
+    margin-left: 10px;
+}
+.ex-details p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+.ex-details a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+.ex-details ul{
+    margin-left: 10px;
+}
+.ex-details li{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style-type: none;
+    margin-bottom: 5px;
+}
+.about-details{
+    width: 70%;
+}
+.more-details{
+    width: 20%;
+}
+.contact-details{
+    width: 30%;
+}
+

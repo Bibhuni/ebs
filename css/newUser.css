@@ -25,6 +25,10 @@ h2{
 p{
     font-family: "Amazon Ember",Arial,sans-serif;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
 .omazon_logo{
     width: 70px;
     height: auto;
@@ -84,6 +88,9 @@ input:focus{
     display: flex;
     align-items: start;
     width: 100%;
+}
+.error{
+    color: red;
 }
 .login-btn{
     width: 100%;

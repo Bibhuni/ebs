@@ -61,7 +61,7 @@ if(!isset($_SESSION['UserLoginId']))
             <div class="dropdown_menu">
                 <ul>
                     <li><a href="edituser.php">Edit profile</a></li>
-                    <li><a href="">Order history</a></li>
+                    <li><a href="user_reset_password.php">change Password</a></li>
                     <li><a href="contactpage.php">Contact Us</a></li>
                     <li><form method="post">
                             <button name="Logout">Signout</button>

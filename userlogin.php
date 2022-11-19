@@ -19,7 +19,7 @@ if(mysqli_num_rows($result)==1)
 else
 {
     echo"<script>alert('Incorrect User name and Password.');
-    window.location.href='index.html';
+    window.location.href='login.html';
     </script>";
 }
 }

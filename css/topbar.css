@@ -22,6 +22,13 @@
     position: sticky;
     top: 50px;
     z-index: 1;
+    justify-content: space-between;
+}
+.time{
+    margin-right: 30px;
+}
+.action-btns{
+    display: flex;
 }
 .fa-map-marker-alt{
     margin-right: 10px;
@@ -125,6 +132,8 @@ ul{
 }
 a{
     text-decoration: none;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
 }
 .dropdown_menu ul{
     list-style: none;
@@ -147,6 +156,7 @@ a{
     color: #a6b9d3;
 }
 .dropdown_menu ul li button{
+    text-align: left;
     border: none;
     background: none;
     color: white;

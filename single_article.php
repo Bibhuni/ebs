@@ -36,7 +36,7 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/topbar.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="initClock()">
     <?php
         $user_data="SELECT * FROM user WHERE email='$_SESSION[UserLoginId]'";
         $user_datta=mysqli_query($conn,$user_data);
@@ -63,7 +63,7 @@ if(!isset($_SESSION['UserLoginId']))
             <div class="dropdown_menu">
                 <ul>
                     <li><a href="edituser.php">Edit profile</a></li>
-                    <li><a href="">Order history</a></li>
+                    <li><a href="user_reset_password.php">change Password</a></li>
                     <li><a href="contactpage.php">Contact Us</a></li>
                     <li><form method="post">
                             <button name="Logout">Signout</button>
@@ -73,14 +73,27 @@ if(!isset($_SESSION['UserLoginId']))
             </div>
             </div>
         </div>
-        <i class="fa-solid fa-cart-shopping topbarImg"></i>
+        <div class="date">
+            <span id="dayname">Day</span>,
+            <span id="month">Month</span>
+            <span id="daynum">00</span>,
+            <span id="year">Year</span>    
+        </div>
       </div>
     </div>
     <div class="topbar2">
-      <i class="fas fa-map-marker-alt"></i>
-      <p class="topbar-city"><b><?php echo $row['city'];?>,</b></p>
-      <p class="topbar-state"><?php echo $row['state'];?>, </p>
-      <p class="topbar-pin"><?php echo $row['pin'];?></p>
+      <div class="action-btns">
+        <i class="fas fa-map-marker-alt"></i>
+        <p class="topbar-city"><b><?php echo $row['city'];?>,</b></p>
+        <p class="topbar-state"><?php echo $row['state'];?>, </p>
+        <p class="topbar-pin"><?php echo $row['pin'];?></p>
+      </div>
+      <div class="time">
+            <span id="hour">00</span>:
+            <span id="minutes">00</span>:
+            <span id="seconds">00</span>
+            <span id="period">AM</span>    
+        </div>
     </div>
     <center><section class="article">
         <?php while($row = $fa->fetch_assoc()){?>
@@ -110,6 +123,6 @@ if(!isset($_SESSION['UserLoginId']))
     header("location: Index.html");
     }
   ?>
-
+<script src="js/dtime.js"></script>
 </body>
 </html>
