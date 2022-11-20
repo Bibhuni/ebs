@@ -76,3 +76,11 @@
   color: white;
   padding:10px;
 }
+form{
+    height: 100%;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+.invis-btn{
+  display: none;
+}

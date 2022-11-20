@@ -165,7 +165,53 @@ if(!isset($_SESSION['UserLoginId']))
               </div>
             </div>
           </section>
-      
+          <div class="no-subscriber">
+      <div class="main-card">
+        <div class="card">
+          <img src="img/technology.jpg" alt="">
+          <div class="card-text">
+            <h2>Tech</h2>
+            <p>Get access to exclusive articles of latest technology and its related stuffs.</p>
+          </div>
+          <div class="card-stats">
+            <div class="stats-btn">
+            <form class="container" action="subscribe.php" id="form" name="tech" method="post">
+              <input type="text" value="tech" name="subscriber" class="invis-btn">
+              <button type="submit" name="tech">Switch</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="img/sports.jpg" alt="">
+          <div class="card-text">
+            <h2>Sports</h2>
+            <p>Get access to exclusive sports articles and its related stuffs.</p>
+          </div>
+          <div class="card-stats">
+          <div class="stats-btn">
+            <form class="container" action="subscribe.php" id="form" name="sports" method="post">
+              <input type="text" value="sports" name="subscriber" class="invis-btn">
+              <button type="submit" name="sports">Switch</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="img/business.jpg" alt="">
+          <div class="card-text">
+            <h2>Business</h2>
+            <p>Get access to exclusive articles of Business related stuffs.</p>
+          </div>
+          <div class="card-stats">
+          <div class="stats-btn">
+          <form class="container" action="subscribe.php" id="form" name="sports" method="post">
+              <input type="text" value="business" name="subscriber" class="invis-btn">
+              <button type="submit" name="business">Switch</button>
+          </form>
+            </div>
+          </div>
+        </div>
           </div>
     <?php }
         else if ($row['subscriber']=='admin') { ?>
@@ -227,6 +273,68 @@ if(!isset($_SESSION['UserLoginId']))
         </div>
       </div>
     </section>
+    
+    <div class="no-subscriber">
+      <div class="main-card">
+        <div class="card">
+          <img src="img/technology.jpg" alt="">
+          <div class="card-text">
+            <h2>Tech</h2>
+            <p>Get access to exclusive articles of latest technology and its related stuffs.</p>
+          </div>
+          <div class="card-stats">
+            <div class="stats-btn">
+            <form class="container" action="subscribe.php" id="form" name="tech" method="post">
+              <input type="text" value="tech" name="subscriber" class="invis-btn">
+              <button type="submit" name="tech">Switch</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="img/sports.jpg" alt="">
+          <div class="card-text">
+            <h2>Sports</h2>
+            <p>Get access to exclusive sports articles and its related stuffs.</p>
+          </div>
+          <div class="card-stats">
+          <div class="stats-btn">
+            <form class="container" action="subscribe.php" id="form" name="sports" method="post">
+              <input type="text" value="sports" name="subscriber" class="invis-btn">
+              <button type="submit" name="sports">Switch</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="img/business.jpg" alt="">
+          <div class="card-text">
+            <h2>Business</h2>
+            <p>Get access to exclusive articles of Business related stuffs.</p>
+          </div>
+          <div class="card-stats">
+          <div class="stats-btn">
+          <form class="container" action="subscribe.php" id="form" name="sports" method="post">
+              <input type="text" value="business" name="subscriber" class="invis-btn">
+              <button type="submit" name="business">Switch</button>
+          </form>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="img/global.jpg" alt="">
+          <div class="card-text">
+            <h2>Gold Plan</h2>
+            <p>Get access to all exclusive articles at once.</p>
+          </div>
+          <div class="card-stats">
+          <div class="stats-btn">
+              <a href="all_payment.php"><button name="tech">Switch</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     </div>
     <?php } ?>

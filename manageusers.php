@@ -9,7 +9,11 @@ if(isset($_GET['id'])){
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i",$user_id);
     $stmt->execute();
-    $fa = $stmt->get_result();;
+    $fa = $stmt->get_result();
+    $sub_query = "SELECT * FROM user WHERE id=$user_id";
+    $su_query = mysqli_query($conn,$sub_query);
+    $row = mysqli_fetch_assoc($su_query);
+    $subscriber = $row['subscriber'];
 }else{
     header('location: home.php');
 }
@@ -92,7 +96,7 @@ if(!isset($_SESSION['UserLoginId']))
             
             echo"<script>alert('subscription cancelled.');
             window.location.href='userlist.php';
-            </script>";        
+            </script>";
         }?>
         <form action="" method="post"><button type="submit" class="delete-user" name="delete-user">Delete user</button></form>
         <?php 
@@ -105,6 +109,79 @@ if(!isset($_SESSION['UserLoginId']))
             </script>";        
         }?>
         </div>
+        <div class="action-buttons">
+        <form action="" method="post"><button type="submit" class="stt" name="switch-to-tech">Switch to tech</button></form>
+        <?php 
+        if(isset($_POST['switch-to-tech'])){
+            if($row['subscriber'] === "tech"){
+                echo"<script>alert('user is already a Tech subscriber');
+                window.location.href='manageusers.php';
+                </script>";
+            
+            }else{
+            $ad_query = "UPDATE user SET subscriber='tech' WHERE id=$user_id";
+            $ad_ns=mysqli_query($conn,$ad_query);
+            
+            echo"<script>alert('switched to tech Omazon.');
+            window.location.href='manageusers.php';
+            </script>";
+            }
+        }?>
+        <form action="" method="post"><button type="submit" class="sts" name="switch-to-sports">Switch to Sports</button></form>
+        <?php 
+        if(isset($_POST['switch-to-sports'])){
+            if($row['subscriber'] === "sports"){
+                echo"<script>alert('user is already a Sports subscriber');
+                window.location.href='manageusers.php';
+                </script>";
+            
+            }else{
+            $ad_query = "UPDATE user SET subscriber='sports' WHERE id=$user_id";
+            $ad_ns=mysqli_query($conn,$ad_query);
+            
+            echo"<script>alert('switched to sports Omazon.');
+            window.location.href='manageusers.php';
+            </script>";
+            }
+        }?>
+        </div>
+        <div class="action-buttons">
+        <form action="" method="post"><button type="submit" class="stb" name="switch-to-business">Switch to Business</button></form>
+        <?php 
+        if(isset($_POST['switch-to-business'])){
+            if($row['subscriber'] === "business"){
+                echo"<script>alert('user is already a Business subscriber');
+                window.location.href='manageusers.php';
+                </script>";
+            
+            }else{
+            $ad_query = "UPDATE user SET subscriber='tech' WHERE id=$user_id";
+            $ad_ns=mysqli_query($conn,$ad_query);
+            
+            echo"<script>alert('switched to Business Omazon.');
+            window.location.href='manageusers.php';
+            </script>";
+            }
+        }?>
+        <form action="" method="post"><button type="submit" class="stg" name="switch-to-gold">Switch to Gold</button></form>
+        <?php 
+        if(isset($_POST['switch-to-gold'])){
+            if($row['subscriber'] === "all"){
+                echo"<script>alert('user is already a Gold subscriber');
+                window.location.href='manageusers.php';
+                </script>";
+            
+            }else{
+            $ad_query = "UPDATE user SET subscriber='all' WHERE id=$user_id";
+            $ad_ns=mysqli_query($conn,$ad_query);
+            
+            echo"<script>alert('switched to Gold Omazon.');
+            window.location.href='manageusers.php';
+            </script>";
+            }
+        }?>
+        </div>
+
     <?php } ?>
     </section></center>
     <?php

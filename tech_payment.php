@@ -67,6 +67,7 @@
                 </div>
             </div>    
         </div>
+        <input type="text" value="tech" class="invis-btn" name="subscriber">
         <button type="submit" name="tech">Confirm</button>
         <div id="error" class="error" name="error"></div>
     </form>

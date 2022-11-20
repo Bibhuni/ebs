@@ -149,3 +149,12 @@ button{
     background: linear-gradient(rgb(235, 235, 235), rgb(223, 223, 223));
     cursor: pointer;
 }
+textarea{
+    border: 1px solid rgb(187 185 185);
+    width: 98%;
+}
+textarea:focus{
+    border: 1px solid rgb(185, 133, 64);
+    box-shadow: 0 0 5px rgb(238, 183, 81);
+    outline: none;
+}

@@ -67,6 +67,7 @@
                 </div>
             </div>    
         </div>
+        <input type="text" value="sports" class="invis-btn" name="subscriber">
         <button type="submit" name="sports">Confirm</button>
         <div id="error" class="error" name="error"></div>
     </form>

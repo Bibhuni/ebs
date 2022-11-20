@@ -44,6 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-bottom: 20px;
 }
 button{
     border: none;
@@ -58,4 +59,16 @@ button{
 }
 .delete-user{
     background: red;
+}
+.stt{
+    background: rgb(162, 42, 173);
+}
+.sts{
+    background: rgb(64, 64, 167);
+}
+.stb{
+    background: rgb(16, 103, 129);
+}
+.stg{
+    background: rgb(184, 146, 51);
 }

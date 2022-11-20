@@ -83,3 +83,6 @@ button:hover{
 .cards img{
     width: 100px;
 }
+.invis-btn{
+    display: none;
+}
