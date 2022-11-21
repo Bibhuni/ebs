@@ -8,9 +8,17 @@ mysqli_select_db($connection,"ebs");
 
 $id = $_SESSION['article_id'];
 $headline = $_POST['headline'];
+$headline = str_replace("'","\'",$headline);
 $subtext = $_POST['subtext'];
+$subtext = str_replace("'","\'",$subtext);
 $category = $_POST['category'];
 $detailed = $_POST['detailed'];
+$detailed = str_replace("'","\'",$detailed);
+$old_img_query = "SELECT * FROM articles WHERE id='$id'";
+$old_img_con = mysqli_query($connection,$old_img_query);
+$raw = mysqli_fetch_assoc($old_img_con);
+$old_img = $raw['image'];
+$old_detailed = $raw['detailed'];
 
 
 if(isset($_POST['post_article']) && isset($_FILES['image'])){
@@ -38,8 +46,9 @@ if(isset($_POST['post_article']) && isset($_FILES['image'])){
             }
         }
     }else{
-        $em = "Unknown error occured!";
-        header("Location: createpost.php?error=$em");
+        $new_img_name = $old_img;
+        /*$em = "Select a file!";
+        header("Location: createpost.php?error=$em");*/
     }
 
 }else{
@@ -47,10 +56,28 @@ if(isset($_POST['post_article']) && isset($_FILES['image'])){
 }
 $query = "UPDATE articles SET headline='$headline', subtext='$subtext', category='$category', detailed='$detailed', image='$new_img_name' WHERE id='$id'";
 
-if(mysqli_query($connection,$query)){
+if($detailed ==='' || is_null($detailed)){
+    $qquery = "UPDATE articles SET headline='$headline', subtext='$subtext', category='$category', detailed='$old_detailed', image='$new_img_name' WHERE id='$id'";
+    if(mysqli_query($connection,$qquery)){
+        echo"
+        <script>
+        alert('Article edited successfully.');
+        window.location.href='home.php';
+        </script>
+        ";        
+    }
+    else{
+        echo"
+        <script>
+        alert('Failed!!!');
+        window.location.href='create_post.php';
+        </script>
+        ";
+    }
+}else if(mysqli_query($connection,$query)){
     echo"
     <script>
-    alert('Article edited successfully.');
+    alert('Article edited successfully by global.');
     window.location.href='home.php';
     </script>
     ";        

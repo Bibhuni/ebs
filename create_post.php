@@ -5,9 +5,12 @@ $connection = mysqli_connect('localhost','root');
 mysqli_select_db($connection,"ebs");
 
 $headline = $_POST['headline'];
+$headline = str_replace("'","\'",$headline);
 $subtext = $_POST['subtext'];
+$subtext = str_replace("'","\'",$subtext);
 $category = $_POST['category'];
 $detailed = $_POST['detailed'];
+$detailed = str_replace("'","\'",$detailed);
 
 
 if(isset($_POST['post_article']) && isset($_FILES['image'])){

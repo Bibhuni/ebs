@@ -82,11 +82,11 @@ if(!isset($_SESSION['UserLoginId']))
                 </div>
                 <div class="name-input">
                     <p>Subject</p>
-                    <input name="headline" maxlength="1000" type="text" placeholder="<?php echo $raw['headline'];?>" required>
+                    <input name="headline" maxlength="1000" type="text" value="<?php echo $raw['headline'];?>" required>
                 </div>
                 <div class="email-input">
                     <p>Subtext</p>
-                    <input name="subtext" maxlength="3000" type="text" placeholder="<?php echo $raw['subtext'];?>" required>
+                    <input name="subtext" maxlength="3000" type="text" value="<?php echo $raw['subtext'];?>" required>
                 </div>
                 <div class="email-input">
                     <p>Category</p>
@@ -99,15 +99,16 @@ if(!isset($_SESSION['UserLoginId']))
                 </div>
                 <div class="email-input">
                     <p>Content</p>
-                    <textarea name="detailed" placeholder="<?php echo $raw['detailed'];?>" autocomplete="off" id="" cols="30" maxlength="9000" rows="10" placeholder="Your Message." required></textarea>
+                    <textarea name="detailed" autocomplete="off" id="detailed" cols="30" maxlength="9000" rows="10" required></textarea>
                 </div>
                 <div class="password-input">
                     <p>Image</p>
-                    <input type="file" name="image" >
+                    <input type="file" name="image" id="image" required>
                     <?php if (isset($_GET['error'])): ?>
                         <p><?php echo $_GET['error']; ?></p>
                     <?php endif ?>
                 </div>
+                <div class="error"></div>
                 <div class="login-bttn">
                     <button type="submit" name="post_article" class="login-btn">Continue</button>
                 </div>

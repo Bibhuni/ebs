@@ -70,7 +70,7 @@ img{
 }
 .details{
     background: rgba(190, 192, 211, 0.452);
-    height: 50vh;
+    padding-bottom: 6px;
 }
 .oth-details{
     background: white;
