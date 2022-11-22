@@ -25,7 +25,8 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/sports.css">
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/table.css">
-    <title>Document</title>
+    <title>Omazon</title>
+    <link rel="icon" href="img//icon.png">
 </head>
 <body onload="initClock()">
     <?php

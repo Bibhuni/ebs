@@ -31,6 +31,7 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/topbar.css">
     <link rel="stylesheet" href="css/edituser.css">
     <title>Edit article</title>
+    <link rel="icon" href="img//icon.png">
 </head>
 <body onload="initClock()">
 <?php

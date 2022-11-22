@@ -34,7 +34,8 @@ if(!isset($_SESSION['UserLoginId']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/single_article.css">
     <link rel="stylesheet" href="css/topbar.css">
-    <title>Document</title>
+    <title>Article Manage</title>
+    <link rel="icon" href="img//icon.png">
 </head>
 <body onload="initClock()">
     <?php

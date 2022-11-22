@@ -20,7 +20,8 @@ if(!isset($_SESSION['UserLoginId']))
     <script src="https://kit.fontawesome.com/fa11acf629.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/edituser.css">
     <link rel="stylesheet" href="css/topbar.css">
-    <title>Document</title>
+    <title>Update profile</title>
+    <link rel="icon" href="img//icon.png">
 </head>
 <body onload="initClock()">
     <?php

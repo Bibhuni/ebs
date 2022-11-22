@@ -23,7 +23,8 @@ if(!isset($_SESSION['UserLoginId']))
     <script src="https://kit.fontawesome.com/fa11acf629.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/topbar.css">
     <link rel="stylesheet" href="css/sports.css">
-    <title>Document</title>
+    <title>Articles</title>
+    <link rel="icon" href="img//icon.png">
 </head>
 <body onload="initClock()">
     <?php

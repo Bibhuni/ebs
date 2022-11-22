@@ -37,7 +37,8 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/edituser.css">
     <link rel="stylesheet" href="css/allusers.css">
     <link rel="stylesheet" href="css/single_user.css">
-    <title>Document</title>
+    <title>User manage</title>
+    <link rel="icon" href="img//icon.png">
 </head>
 <body onload="initClock()">
 <?php
