@@ -1,7 +1,6 @@
 .no-subscriber{
   margin-top: 50px;
   margin-bottom: 50px;
-  width: 90vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,4 +82,14 @@ form{
 }
 .invis-btn{
   display: none;
+}
+@media (max-width:1081px){
+  .main-card{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width:690px){
+  .main-card{
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

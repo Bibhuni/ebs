@@ -6,7 +6,6 @@ section.sports .sports-container{
 section.sports .caard-wrapper{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 3rem;
 }
 
 section.sports .caard-wrapper .caard{
@@ -37,4 +36,14 @@ section.sports .caard-wrapper .caard .caard-content{
 section.sports .caard-wrapper .caard .caard-content h1{
     font-size: 1rem;
     font-weight: 600;
+}
+@media (max-width:1162px){
+    section.sports .caard-wrapper{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width:747px){
+    section.sports .caard-wrapper{
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

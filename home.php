@@ -10,7 +10,6 @@ if(!isset($_SESSION['UserLoginId']))
 {
     header("location: Index.html");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,12 +40,6 @@ if(!isset($_SESSION['UserLoginId']))
             <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
         </a>
       </div>
-      <div class="topbarCenter">
-        <div class="searchbar">
-            <input placeholder="Search for your item." class="searchInput" />
-            <i class="fa-solid fa-magnifying-glass searchIcon"></i>
-        </div>
-      </div>
       <div class="topbarRight">
         <div class="topbarLinks">
             <div class="home_name">Hello, <?php echo $row['name'];?>
@@ -64,11 +57,19 @@ if(!isset($_SESSION['UserLoginId']))
             </div>
             </div>
         </div>
-        <div class="date">
-            <span id="dayname">Day</span>,
-            <span id="month">Month</span>
-            <span id="daynum">00</span>,
-            <span id="year">Year</span>    
+        <div class="date-time">
+            <div class="date">
+                <span id="dayname">Day</span>
+                <span id="month">Month</span>
+                <span id="daynum">00</span>,
+                <span id="year">Year</span>    
+            </div>
+            <div class="time">
+                <span id="hour">00</span>:
+                <span id="minutes">00</span>:
+                <span id="seconds">00</span>
+                <span id="period">AM</span>    
+            </div>
         </div>
       </div>
     </div>
@@ -79,18 +80,12 @@ if(!isset($_SESSION['UserLoginId']))
         <p class="topbar-state"><?php echo $row['state'];?>, </p>
         <p class="topbar-pin"><?php echo $row['pin'];?></p>
       </div>
-      <div class="time">
-            <span id="hour">00</span>:
-            <span id="minutes">00</span>:
-            <span id="seconds">00</span>
-            <span id="period">AM</span>    
-        </div>
     </div>
 
 
     <?php if ($row['subscriber']=='nsubscribe') { ?> 
     <div class="no-subscriber">
-      <div class="main-card">
+      <center><div class="main-card">
         <div class="card">
           <img src="img/technology.jpg" alt="">
           <div class="card-text">
@@ -139,14 +134,13 @@ if(!isset($_SESSION['UserLoginId']))
             </div>
           </div>
         </div>
-      </div>
+      </div></center>
     </div>
-    <?php }
-    else if ($row['subscriber']=='all') { ?>
+    <?php } else if ($row['subscriber']=='all') { ?>
           <div>
             <?php include('get_featured_articles_sports.php'); ?>
             Welcome to Omazon world.
-          <section class="sports">
+          <center><section class="sports">
             <div class="sports-container">
               <div class="caard-wrapper">
                 <?php while($roww = mysqli_fetch_assoc($faa)){?>
@@ -164,7 +158,7 @@ if(!isset($_SESSION['UserLoginId']))
                 <?php }?>
               </div>
             </div>
-          </section>
+          </section></center>
           <div class="no-subscriber">
       <div class="main-card">
         <div class="card">
@@ -213,8 +207,7 @@ if(!isset($_SESSION['UserLoginId']))
           </div>
         </div>
           </div>
-    <?php }
-        else if ($row['subscriber']=='admin') { ?>
+    <?php }else if($row['subscriber']=='admin') { ?>
           <center><div>
             <?php include('get_admin_data.php'); 
               $xuq = mysqli_fetch_assoc($uq);
@@ -223,14 +216,10 @@ if(!isset($_SESSION['UserLoginId']))
               $xspu = mysqli_fetch_assoc($spu);
               $xbu = mysqli_fetch_assoc($bu);
               $xgu = mysqli_fetch_assoc($gu);
-
-
               $xaq = mysqli_fetch_assoc($aq);
               $xta = mysqli_fetch_assoc($ta);
               $xsa = mysqli_fetch_assoc($sa);
               $xba = mysqli_fetch_assoc($ba);
-
-
             ?>
             Hii Admin.
             <table>
@@ -249,12 +238,11 @@ if(!isset($_SESSION['UserLoginId']))
               <tr><th><a href="articlelist.php"><li>view articles</li></a></th><th><a href="articlelist.php">GO</a></th></tr>
           </table>
           </div></center>
-    <?php }
-    else{ ?>
+    <?php }else{ ?>
     <div>
       <?php include('get_featured_articles_sports.php'); ?>
       Welcome to <?php echo $row['subscriber']?> world.    
-    <section class="sports">
+    <center><section class="sports">
       <div class="sports-container">
         <div class="caard-wrapper">
           <?php while($roww = mysqli_fetch_assoc($fa)){?>
@@ -272,7 +260,7 @@ if(!isset($_SESSION['UserLoginId']))
           <?php }?>
         </div>
       </div>
-    </section>
+    </section></center>
     
     <div class="no-subscriber">
       <div class="main-card">
@@ -337,10 +325,7 @@ if(!isset($_SESSION['UserLoginId']))
     </div>
 
     </div>
-    <?php } ?>
-    
-
-    <?php
+    <?php }
     if(isset($_POST['Logout']))
     {
     session_destroy();

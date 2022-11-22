@@ -32,7 +32,7 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/edituser.css">
     <title>Edit article</title>
 </head>
-<body>
+<body onload="initClock()">
 <?php
         $user_data="SELECT * FROM user WHERE email='$_SESSION[UserLoginId]'";
         $user_datta=mysqli_query($conn,$user_data);
@@ -47,12 +47,6 @@ if(!isset($_SESSION['UserLoginId']))
             <span class="logoo">omazon<span>.in</span></span>
             <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
         </a>
-      </div>
-      <div class="topbarCenter">
-        <div class="searchbar">
-            <input placeholder="Search for your item." class="searchInput" />
-            <i class="fa-solid fa-magnifying-glass searchIcon"></i>
-        </div>
       </div>
       <div class="topbarRight">
         <div class="topbarLinks">
@@ -71,7 +65,20 @@ if(!isset($_SESSION['UserLoginId']))
             </div>
             </div>
         </div>
-        <i class="fa-solid fa-cart-shopping topbarImg"></i>
+        <div class="date-time">
+            <div class="date">
+                <span id="dayname">Day</span>
+                <span id="month">Month</span>
+                <span id="daynum">00</span>,
+                <span id="year">Year</span>    
+            </div>
+            <div class="time">
+                <span id="hour">00</span>:
+                <span id="minutes">00</span>:
+                <span id="seconds">00</span>
+                <span id="period">AM</span>    
+            </div>
+        </div>
       </div>
     </div>
 <center><div class="total">
@@ -103,7 +110,7 @@ if(!isset($_SESSION['UserLoginId']))
                 </div>
                 <div class="password-input">
                     <p>Image</p>
-                    <input type="file" name="image" id="image" required>
+                    <input type="file" name="image" id="image">
                     <?php if (isset($_GET['error'])): ?>
                         <p><?php echo $_GET['error']; ?></p>
                     <?php endif ?>
@@ -123,6 +130,6 @@ if(!isset($_SESSION['UserLoginId']))
     header("location: Index.html");
     }
   ?>
-  <script src="js/script.js"></script>
+  <script src="js/dtime.js"></script>
 </body>
 </html>

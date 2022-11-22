@@ -40,17 +40,20 @@ img{
 }
 .date{
     color: white;
-    margin-right: 30px;
+    text-align: right;
 }
 .date span{
     color: white;
 }
 .time{
     color: rgb(192, 192, 192);
-    margin-right: 30px;
+    text-align: right;
 }
 .time span{
     color: rgb(192, 192, 192);
+}
+#dayname{
+    display: none;
 }
 .rbn{
     display: flex;
@@ -112,13 +115,28 @@ img{
     list-style-type: none;
     margin-bottom: 5px;
 }
+.bottom-left{
+    display: flex;
+}
 .about-details{
     width: 70%;
 }
 .more-details{
-    width: 20%;
+    width: 40%;
 }
-.contact-details{
-    width: 30%;
+.payment-details{
+    color: red;
 }
-
+@media (max-width:936px){
+    .ex-details{
+        flex-direction: column;
+    }
+    .about-details{
+        width: 100%;
+    }
+}
+@media(max-width:500px){
+    .time{
+        width: 100%;
+    }
+}

@@ -63,3 +63,12 @@ button{
 .edit-article{
     background: rgb(42, 148, 42);
 }
+@media (max-width:1162px){
+    .article{
+        max-width: 100%;
+    }
+    .article img{
+        width: 100%;
+    }
+    
+}

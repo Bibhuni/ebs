@@ -50,12 +50,6 @@ if(!isset($_SESSION['UserLoginId']))
             <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
         </a>
       </div>
-      <div class="topbarCenter">
-        <div class="searchbar">
-            <input placeholder="Search for your item." class="searchInput" />
-            <i class="fa-solid fa-magnifying-glass searchIcon"></i>
-        </div>
-      </div>
       <div class="topbarRight">
         <div class="topbarLinks">
             <div class="home_name">Hello, <?php echo $row['name'];?>
@@ -73,11 +67,19 @@ if(!isset($_SESSION['UserLoginId']))
             </div>
             </div>
         </div>
-        <div class="date">
-            <span id="dayname">Day</span>,
-            <span id="month">Month</span>
-            <span id="daynum">00</span>,
-            <span id="year">Year</span>    
+        <div class="date-time">
+            <div class="date">
+                <span id="dayname">Day</span>
+                <span id="month">Month</span>
+                <span id="daynum">00</span>,
+                <span id="year">Year</span>    
+            </div>
+            <div class="time">
+                <span id="hour">00</span>:
+                <span id="minutes">00</span>:
+                <span id="seconds">00</span>
+                <span id="period">AM</span>    
+            </div>
         </div>
       </div>
     </div>
@@ -88,12 +90,6 @@ if(!isset($_SESSION['UserLoginId']))
         <p class="topbar-state"><?php echo $row['state'];?>, </p>
         <p class="topbar-pin"><?php echo $row['pin'];?></p>
       </div>
-      <div class="time">
-            <span id="hour">00</span>:
-            <span id="minutes">00</span>:
-            <span id="seconds">00</span>
-            <span id="period">AM</span>    
-        </div>
     </div>
     <center><section class="article">
         <?php while($row = $fa->fetch_assoc()){?>
