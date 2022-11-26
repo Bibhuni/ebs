@@ -30,7 +30,6 @@ if(!isset($_SESSION['UserLoginId']))
     $user_data="SELECT * FROM user WHERE email='$_SESSION[UserLoginId]'";
     $user_datta=mysqli_query($connection,$user_data);
     $row = mysqli_fetch_assoc($user_datta);
-    $oldpassword = $row['password'];
 
     ?>
     <div class="topbarContainer">
@@ -120,9 +119,7 @@ if(!isset($_SESSION['UserLoginId']))
 
         form.addEventListener('submit',(e)=>{
             let message = []
-            if(oldpassword.value != '<?php echo $row['password'];?>'){
-                message.push('*Wrong password entered')
-            }else if(oldpassword.value === '' || oldpassword.value == null){
+            if(oldpassword.value === '' || oldpassword.value == null){
                 message.push('*Enter your oldpassword please.');
             }else if(password.value === '' || password.value == null){
                 message.push('*Enter your password please.');
