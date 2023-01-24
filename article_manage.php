@@ -45,7 +45,7 @@ if(!isset($_SESSION['UserLoginId']))
     <div class="topbarContainer">
       <div class="topbarLeft">
         <a href="home.php" class="topbarLeft">
-            <span class="logoo">omazon<span>.in</span></span>
+            <span class="logoo">newswall<span>.in</span></span>
             <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
         </a>
       </div>

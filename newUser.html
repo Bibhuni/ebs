@@ -4,47 +4,104 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/newUser.css">
-    <title>New to Omazon</title>
+    <title>New to Newswall</title>
     <link rel="icon" href="img//icon.png">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script src="js/dtime.js"></script>
 </head>
-<body>
-    <a href="index.html"><center><h1>Omazon</h1></center>
-    <center><img class="omazon_logo" src="img/kindpng_5532732.png" alt=""></center></a>
-    <center><div class="total">
-        <center><div class="main">
-            <center><form class="login-form" id="register" action="newuser.php" method="post">
-                <div class="heading">
-                    <h2>Create Account</h2>
-                </div>
-                <div class="name-input">
-                    <p>Your name</p>
-                    <input name="name" type="text">
-                </div>
-                <div class="email-input">
-                    <p>Email</p>
-                    <input name="email" type="text">
-                </div>
-                <div class="email-input">
-                    <p>Password</p>
-                    <input id="password" name="password" type="password">
-                </div>
-                <div class="password-input">
-                    <p>Re-type Password</p>
-                    <input id="re-password" type="password">
-                </div>
-                <div class="error" id="error"></div>
-                <div class="login-bttn">
-                    <button type="submit" name="register" class="login-btn">Continue</button>
-                </div>
-                <div class="description">
-                    <p>By enrolling your email, you consent to receive automated security notifications via text message from Omazon. Message and data rates may apply.</p>
-                </div>
-            </form></center>
-        </div></center>
-        <p class="new-acc"><span>Have an account?</span></p>
-        <a href="login.html"><button class="new-acc-btn">Back to Login</button></a>
-    </div></center>
+<body onload="initClock()">
+    <section class="title">
+        <a href="index.html" class="ico"><div class="logo">
+            <span class="logoo">newswall<span>.in</span></span>
+            <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
+        </div></a>
+        <div class="date-time">
+            <div class="date">
+                <span id="dayname">Day</span>
+                <span id="month">Month</span>
+                <span id="daynum">00</span>,
+                <span id="year">Year</span>    
+            </div>
+            <div class="time">
+                <span id="hour">00</span>:
+                <span id="minutes">00</span>:
+                <span id="seconds">00</span>
+                <span id="period">AM</span>    
+            </div>
+        </div>
+    </section>
+    <section class="rbn">
+        <div class="action-btns">
+            <a href="login.html">Login</a>
+            <a href="newUser.html">Register</a>
+            <a href="resetpassword.html">Recover Password</a>    
+        </div>
+    </section>
+    <section class="details">
+        <h1>Welcome to the Portal!</h1>
+        <div class="oth-details">
+          <form id="register" action="newuser.php" method="post">
+            <div class="row-input">
+              <div class="col-input">
+                <label>name</label>
+                <input name="name" type="text">
+              </div>
+              <div class="col-input">
+                <label>Email</label>
+                <input name="email" type="email">
+              </div>
+            </div>
+            <div class="row-input">
+              <div class="col-input">
+                <label>Password</label>
+                <input id="password" name="password" type="password">
+            </div>
+              <div class="col-input">
+                <label>Re-type Password</label>
+                <input id="re-password" type="password">
+            </div>
+            </div>
+            <div class="row-input btn">
+              <button type="submit" name="register">Register</button>
+              <a href="login.html"><button type="button">Back to login</button></a>
+            </div>
+            <div class="error" id="error"></div>
+          </form>
+        </div>
+    </section>
+    <section class="ex-details">
+        <div class="about-details">
+            <h1>About the Project</h1>
+            <p>There are two modules in this portal: (1) Adminstrator and (2) User.</p>
+            <p>The Adminstrator module facilitates mainly two things: Management of Articles and Management Users. The details of
+                subscription to portal can be viwed through Adminstrator Module.
+            </p>
+            <p>The user module allows a user to view various subscription plans, subscribe to the respective plan and get access to the exclusive
+                related contents.
+            </p>
+            <p class="payment-details">
+                Use any 16 digit number as card number in payment page and 199 or 254 for cvv to proceed payment all other credentials can be skipped.
+            </p>
+        </div>
+        <div class="bottom-left">
+        <div class="more-details">
+            <h1>More Info</h1>
+            <ul>
+                <li><a href="https://github.com/Bibhuni">GitHub</a></li>
+                <li><a href="https://bibhu-ni.netlify.app/">Portfolio</a></li>
+                <li><a href="https://www.linkedin.com/in/bibhu-ni/">Linked In</a></li>
+            </ul>
+        </div>
+        <div class="contact-details">
+            <h1>Contact</h1>
+            <ul>
+                <li>Bharati Vidyapeeth, Paschim Vihar, New Delhi</li>
+                <li>bibhuprasad. s1mca21@bvicam.in</li>
+            </ul>
+        </div>
+    </div>
+    </section>
     <script>
         const password = document.getElementById('password');
         const repassword = document.getElementById('re-password');

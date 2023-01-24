@@ -32,7 +32,7 @@ if(!isset($_SESSION['UserLoginId']))
     <div class="topbarContainer">
         <div class="topbarLeft">
         <a href="home.php" class="topbarLeft">
-          <span class="logoo">omazon<span>.in</span></span>
+          <span class="logoo">newswall<span>.in</span></span>
           <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
         </a>
         </div>
@@ -91,10 +91,10 @@ if(!isset($_SESSION['UserLoginId']))
                     </a>
                 </div>
                 <div class="card">
-                    <a href="mailto:omazon@gmail.com">
+                    <a href="mailto:newswall@gmail.com">
                     <img src="img/message.svg" alt="img">
                     <h2>Email us At</h2>
-                    <h6>omazon@gmail.com</h6>
+                    <h6>newswall@gmail.com</h6>
                 </div></a>
                 <div class="card">
                     <a href="">

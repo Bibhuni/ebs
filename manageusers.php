@@ -49,7 +49,7 @@ if(!isset($_SESSION['UserLoginId']))
     <div class="topbarContainer">
       <div class="topbarLeft">
         <a href="home.php" class="topbarLeft">
-            <span class="logoo">omazon<span>.in</span></span>
+            <span class="logoo">newswall<span>.in</span></span>
             <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
         </a>
       </div>
@@ -125,7 +125,7 @@ if(!isset($_SESSION['UserLoginId']))
             $ad_query = "UPDATE user SET subscriber='tech' WHERE id=$user_id";
             $ad_ns=mysqli_query($conn,$ad_query);
             
-            echo"<script>alert('switched to tech Omazon.');
+            echo"<script>alert('switched to tech newswall.');
             window.location.href='manageusers.php';
             </script>";
             }
@@ -142,7 +142,7 @@ if(!isset($_SESSION['UserLoginId']))
             $ad_query = "UPDATE user SET subscriber='sports' WHERE id=$user_id";
             $ad_ns=mysqli_query($conn,$ad_query);
             
-            echo"<script>alert('switched to sports Omazon.');
+            echo"<script>alert('switched to sports newswall.');
             window.location.href='manageusers.php';
             </script>";
             }
@@ -161,7 +161,7 @@ if(!isset($_SESSION['UserLoginId']))
             $ad_query = "UPDATE user SET subscriber='tech' WHERE id=$user_id";
             $ad_ns=mysqli_query($conn,$ad_query);
             
-            echo"<script>alert('switched to Business Omazon.');
+            echo"<script>alert('switched to Business newswall.');
             window.location.href='manageusers.php';
             </script>";
             }
@@ -178,7 +178,7 @@ if(!isset($_SESSION['UserLoginId']))
             $ad_query = "UPDATE user SET subscriber='all' WHERE id=$user_id";
             $ad_ns=mysqli_query($conn,$ad_query);
             
-            echo"<script>alert('switched to Gold Omazon.');
+            echo"<script>alert('switched to Gold newswall.');
             window.location.href='manageusers.php';
             </script>";
             }

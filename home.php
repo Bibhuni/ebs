@@ -25,7 +25,7 @@ if(!isset($_SESSION['UserLoginId']))
     <link rel="stylesheet" href="css/sports.css">
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/table.css">
-    <title>Omazon</title>
+    <title>newswall</title>
     <link rel="icon" href="img//icon.png">
 </head>
 <body onload="initClock()">
@@ -37,7 +37,7 @@ if(!isset($_SESSION['UserLoginId']))
     <div class="topbarContainer">
       <div class="topbarLeft">
         <a href="home.php" class="topbarLeft">
-            <span class="logoo">omazon<span>.in</span></span>
+            <span class="logoo">newswall<span>.in</span></span>
             <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
         </a>
       </div>
@@ -140,7 +140,7 @@ if(!isset($_SESSION['UserLoginId']))
     <?php } else if ($row['subscriber']=='all') { ?>
           <div>
             <?php include('get_featured_articles_sports.php'); ?>
-            Welcome to Omazon world.
+            Welcome to newswall world.
           <center><section class="sports">
             <div class="sports-container">
               <div class="caard-wrapper">

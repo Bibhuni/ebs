@@ -3,10 +3,14 @@ session_start();
 $connection = mysqli_connect('localhost','root');
 
 mysqli_select_db($connection,"ebs");
+$password=$_POST['password'];
+$password=mysqli_real_escape_string($connection,$password);
+$password=md5($password);
+
 if(isset($_POST['update-password']))
 {
 $userEmail = $_POST['email'];
-$query = "UPDATE user SET password='$_POST[password]' WHERE email='$userEmail'";
+$query = "UPDATE user SET password='$password' WHERE email='$userEmail'";
 
 mysqli_query($connection,$query);
 

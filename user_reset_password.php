@@ -20,8 +20,9 @@ if(!isset($_SESSION['UserLoginId']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/fa11acf629.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/edituser.css">
     <link rel="stylesheet" href="css/topbar.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/form.css">
     <title>Reset Password</title>
     <link rel="icon" href="img//icon.png">
 </head>
@@ -35,7 +36,7 @@ if(!isset($_SESSION['UserLoginId']))
     <div class="topbarContainer">
         <div class="topbarLeft">
         <a href="home.php" class="topbarLeft">
-          <span class="logoo">omazon<span>.in</span></span>
+          <span class="logoo">newswall<span>.in</span></span>
           <img src="img/kindpng_5532732.png" class="omazon_logo" alt="">
         </a>
         </div>
@@ -72,36 +73,68 @@ if(!isset($_SESSION['UserLoginId']))
         </div>
         </div>
       </div>
-    <center><div class="total">
-        <center><div class="main">
-            <center><form id="update-password" class="login-form" action="userResetPassword.php" method="post">
-                <div class="heading">
-                    <h2>Reset your password</h2>
-                </div>
-                <div class="email-input">
-                    <p>Old Password</p>
-                    <input id="oldpassword" name="oldpassword" type="password">
-                </div>
-                <div class="email-input">
-                    <p>Password</p>
-                    <input id="password" name="password" type="password">
-                </div>
-                <div class="password-input">
-                    <p>Re-type Password</p>
-                    <input id="re-password" type="password">
-                </div>
-                <div class="error" id="error"></div>
-                <div class="login-bttn">
-                    <button class="login-btn" name="update-password">Change password</button>
-                </div>
-                <div class="description">
-                    <p>By enrolling your email, you consent to receive automated security notifications via text message from Omazon. Message and data rates may apply.</p>
-                </div>
-            </form></center>
-        </div></center>
-        <a href="home.php"><button class="new-acc-btn">Back to Home</button></a>
-    </div></center>    
-
+      <section class="details">
+        <h1>Welcome to the Portal!</h1>
+        <div class="oth-details">
+          <form id="update-password" class="left-form" action="userResetPassword.php" method="post">
+            <div class="row-input">
+              <div class="col-input">
+                <label>Old Password</label>
+                <input id="oldpassword" name="oldpassword" type="password">
+              </div>
+            </div>
+            <div class="row-input">
+              <div class="col-input">
+                <label>New Password</label>
+                <input id="password" name="password" type="password">
+              </div>
+            </div>
+            <div class="row-input">
+              <div class="col-input">
+                <label>re-type New Password</label>
+                <input id="re-password" type="password">
+              </div>
+            </div>
+            <div class="row-input btn">
+                <button name="update-password">Change password</button>
+              <a href="home.php"><button type="button">Back to Home</button></a>
+            </div>
+            <div class="error" id="error"></div>
+          </form>
+        </div>
+    </section>
+    <section class="ex-details">
+        <div class="about-details">
+            <h1>About the Project</h1>
+            <p>There are two modules in this portal: (1) Adminstrator and (2) User.</p>
+            <p>The Adminstrator module facilitates mainly two things: Management of Articles and Management Users. The details of
+                subscription to portal can be viwed through Adminstrator Module.
+            </p>
+            <p>The user module allows a user to view various subscription plans, subscribe to the respective plan and get access to the exclusive
+                related contents.
+            </p>
+            <p class="payment-details">
+                Use any 16 digit number as card number in payment page and 199 or 254 for cvv to proceed payment all other credentials can be skipped.
+            </p>
+        </div>
+        <div class="bottom-left">
+        <div class="more-details">
+            <h1>More Info</h1>
+            <ul>
+                <li><a href="https://github.com/Bibhuni">GitHub</a></li>
+                <li><a href="https://bibhu-ni.netlify.app/">Portfolio</a></li>
+                <li><a href="https://www.linkedin.com/in/bibhu-ni/">Linked In</a></li>
+            </ul>
+        </div>
+        <div class="contact-details">
+            <h1>Contact</h1>
+            <ul>
+                <li>Bharati Vidyapeeth, Paschim Vihar, New Delhi</li>
+                <li>bibhuprasad. s1mca21@bvicam.in</li>
+            </ul>
+        </div>
+    </div>
+    </section>
     <?php
     if(isset($_POST['Logout']))
     {
@@ -109,7 +142,6 @@ if(!isset($_SESSION['UserLoginId']))
     header("location: index.html");
     }
   ?>
-
     <script>
         const oldpassword = document.getElementById('oldpassword');
         const password = document.getElementById('password');
@@ -134,6 +166,7 @@ if(!isset($_SESSION['UserLoginId']))
             }
         })
     </script>
+
     <script src="js/dtime.js"></script>
 </body>
 </html>

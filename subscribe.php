@@ -23,7 +23,7 @@ if(isset($_POST['tech']))
 
     mysqli_query($connection,$query);
 
-    echo"<script>alert('Thanks for subscription to Tech Omazon');
+    echo"<script>alert('Thanks for subscription to Tech newswall');
     window.location.href='home.php';
     </script>";
     }
@@ -40,7 +40,7 @@ else if(isset($_POST['sports'])){
     
     mysqli_query($connection,$query);
     
-    echo"<script>alert('Thanks for subscription to Omazon Sports');
+    echo"<script>alert('Thanks for subscription to newswall Sports');
     window.location.href='home.php';
     </script>";
     }    
@@ -57,7 +57,7 @@ else if(isset($_POST['business'])){
     
     mysqli_query($connection,$query);
     
-    echo"<script>alert('Thanks for subscription to Omazon Bussiness');
+    echo"<script>alert('Thanks for subscription to newswall Bussiness');
     window.location.href='home.php';
     </script>";
     }    
@@ -74,7 +74,7 @@ else if(isset($_POST['all'])){
     
     mysqli_query($connection,$query);
     
-    echo"<script>alert('Thanks for subscription to Omazon');
+    echo"<script>alert('Thanks for subscription to newswall');
     window.location.href='home.php';
     </script>";
     }   

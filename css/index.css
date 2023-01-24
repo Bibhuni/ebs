@@ -11,6 +11,10 @@ h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-left: 10px;
 }
+.ico{
+    flex: 3;
+    text-decoration: none;
+}
 .title{
     height: 50px;
     width: 100%;

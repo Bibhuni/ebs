@@ -4,10 +4,6 @@ $connection = mysqli_connect('localhost','root');
 
 mysqli_select_db($connection,"ebs");
 
-$password=$_POST['password'];
-$password=mysqli_real_escape_string($connection,$password);
-$password=md5($password);
-
 if(isset($_POST['register']))
 {
     $user_exist_query="SELECT * FROM user WHERE email='$_POST[email]'";
@@ -32,6 +28,10 @@ if(isset($_POST['register']))
         {
             $name = $_POST['name'];
             $email = $_POST['email'];
+            $password=$_POST['password'];
+            $password=mysqli_real_escape_string($connection,$password);
+            $password=md5($password);
+
             $query = "INSERT INTO user(name, email, password) VALUES ('$name','$email','$password')";
             if(mysqli_query($connection,$query))
             {
